@@ -1,5 +1,6 @@
-﻿@echo off
+@echo off
 REM kode.bat - Git shortcut commands
+REM Pastikan file ini disimpan UTF-8 tanpa BOM atau ANSI
 
 if "%~1"=="" (
     echo Git shortcut commands:
@@ -19,6 +20,7 @@ if /i "%CMD%"=="status" (
     git log --oneline --graph --decorate
 ) else if /i "%CMD%"=="kasih" (
     set /p MSG=Commit message: 
+    if "%MSG%"=="" set MSG=update
     git add .
     git commit -m "%MSG%"
     git push
